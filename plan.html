@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فعالیت های مارکتینگی و کمک به فروش</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.65); /* کمی شفافیت کمتر برای خوانایی بیشتر */
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+            --text-color: #0f172a;
+            --accent-color: #4338ca;
+            --secondary-color: #db2777;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* زمینه تمیز برای دیده شدن عکس‌ها */
+            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            min-height: 100vh;
+            color: var(--text-color);
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        /* پس زمینه متحرک */
+        .bg-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.7;
+            animation: moveBlob 20s infinite alternate;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #a18cd1; }
+        .blob-2 { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: #fbc2eb; animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 40%; width: 30vw; height: 30vw; background: #8fd3f4; animation-delay: -10s; }
+
+        @keyframes moveBlob {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #1e3a8a, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        /* Section Layout */
+        .section-wrapper {
+            display: flex;
+            align-items: center; /* تراز عمودی مرکز */
+            justify-content: space-between;
+            gap: 60px; /* فاصله زیاد بین متن و عکس */
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        /* یکی در میان عکس و متن جابجا شوند */
+        .section-wrapper:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Glass Content Card */
+        .content-card {
+            flex: 1; /* عرض مساوی */
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: var(--glass-shadow);
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: #fff;
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+
+        ul {
+            list-style: none;
+            padding-right: 10px;
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 18px;
+            padding-right: 25px;
+            font-size: 1.15rem;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+
+        .info-box {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border-right: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #475569;
+        }
+
+        /* Image Area Styling */
+        .image-display-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 400px; /* حداقل ارتفاع برای نمایش خوب عکس */
+        }
+
+        /* Base styles for the showcase images */
+        .showcase-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px; /* محدودیت ارتفاع برای جلوگیری از غول‌پیکر شدن */
+            object-fit: contain;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.25)); /* سایه برای جدا شدن از پس زمینه */
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: hoverFloat 6s ease-in-out infinite;
+        }
+
+        .showcase-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            filter: drop-shadow(0 20px 35px rgba(0,0,0,0.35));
+            z-index: 10;
+        }
+
+        /* Animation for floating effect */
+        @keyframes hoverFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Special Grid for Section 1 (Multiple Images) */
+        .multi-image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-item-logo {
+            grid-column: 1 / -1; /* تمام عرض */
+            justify-self: center;
+            margin-bottom: 20px;
+        }
+        .grid-item-logo img { max-height: 200px; }
+
+        .grid-item-other img { max-height: 300px; width: 100%; }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .section-wrapper, .section-wrapper:nth-child(even) {
+                flex-direction: column-reverse; /* عکس بالا، متن پایین */
+                gap: 30px;
+            }
+
+            .image-display-area {
+                min-height: auto;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .showcase-img {
+                max-height: 350px;
+            }
+
+            header {
+                padding: 30px 10px;
+            }
+            h1 { font-size: 2.5rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <div class="container">
+        <header>
+            <h1>برنامه مارکتینگ و فروش</h1>
+            <div class="subtitle">استراتژی‌های اجرایی، هویت بصری و توسعه بازار</div>
+        </header>
+
+        <!-- 1. Brand Identity (Contains multiple images) -->
+        <div class="section-wrapper">
+            <div class="content-card">
+                <span class="section-tag">هویت برند</span>
+                <h2>ایجاد آگاهی و تعمیق وفاداری</h2>
+                <ul>
+                    <li>توسعه هویت بصری و کلامی برند</li>
+                    <li>طراحی و بازطراحی بسته بندی تمامی محصولات برند بلوط</li>
+                    <li>طراحی کاراکتر برند (Mascot)</li>
+                    <li>مدیریت سبد محصولات و مارکتینگ پلن</li>
+                    <li>تولید محتوای متنی و تصویری (سایت و سوشال)</li>
+                    <li>عکاسی محصولات و ویدئو برند بلوط</li>
+                    <li>طراحی بازی و گیمیفیکیشن</li>
+                    <li>تحقیق و رصد بازار و شناسایی تشابهات و تمایزات با رقبا</li>
+
+                    <li>برگزاری جلسات پزرنت برند و محصولات برای زنجیره پخش نماینده (شعبه)</li>
+
+                    <li>طراحی و تامین پکیج گیفت برای زنجیره پخش</li>
+
+                    <li>طراحی استراتژی PUSH و تخصیص درصد سود برای هرکدام از حلقه های زنجیره منتطبق بر زمان</li>
+
+                    <li>طراحی کمپین BTL جهت ورود به بازار محصولات جدید</li>
+
+                    <li>طراحی تصویر کلیدی کمپین جهت تطبیق با هرکدام از اقلام دیجیتالی و فیزیکی</li>
+
+                    
+
+
+                </ul>
+                <div class="info-box">
+                    <strong>نکات کلیدی:</strong> نهایی سازی Brand Guideline، پرزنت برند برای زنجیره توزیع، طراحی تصویر کلیدی (Key Visual) برای کمپین لانچ.
+                </div>
+            </div>
+
+            <div class="image-display-area">
+                <!-- Special grid for multiple images in this section -->
+                <div class="multi-image-grid">
+                    <div class="grid-item-logo">
+                        <img src="images/logo.png" alt="Logo" class="showcase-img" title="لوگو">
+                    </div>
+                    <div class="grid-item-other">
+                        <img src="images/ala.png" alt="Packaging" class="showcase-img" style="animation-delay: 1s;" title="بسته‌بندی">
+                    </div>
+                    <div class="grid-item-other">
+                        <img src="images/character.png" alt="Character" class="showcase-img" style="animation-delay: 2s;" title="کاراکتر">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Content & Ads -->
+        <div class="section-wrapper">
+            <div class="content-card">
+                <span class="section-tag">محتوا و تبلیغات</span>
+                <h2>کمپین لانچ </h2>
+                <ul>
+                    <li>برنامه ریزی جهت اجرای ایونت معرفی فروشگاه/محصول/کمپین با کمک بلاگرهای محلی</li>
+                    <li>برنامه ریزی جهت اجرای قرعه کشی در فروشگاه های منتطبق KPI ارائه شده</li>
+
+                    <li>طراحی اقلام تبلیغاتی</li>
+                </ul>
+                <div class="info-box">
+                    <strong>خروجی‌ها:</strong>  محتوای شاخص + کاتالوگ رسمی محصولات      </div>
+            </div>
+            <div class="image-display-area">
+                <img src="images/card.png" alt="Challenge Card" class="showcase-img">
+            </div>
+        </div>
+
+        <!-- 3. POP & Incentive -->
+        <div class="section-wrapper">
+            <div class="content-card">
+                <span class="section-tag">POP & Incentive</span>
+                <h2>اقلام تبلیغاتی نقطه فروش</h2>
+                <ul>
+                    <li>طراحی و چاپ اقلام تبلیغاتی (استند، پودیوم، پوستر)</li>
+
+                    <li>استفاده از فرصت های تبلیغات محیطی فروشگاه‌های VIP و زنجیره ای</li>
+
+                    <li>سر در فروشگاه</li>
+
+                    <li>لایت باکس و سایه بان</li>
+
+                    <li>مانیتور و lcd اجرای ایونت</li>
+
+                    <li>پیاده‌سازی QR Code و پنل SMS</li>
+                    <li>ایجاد بستر دیجیتال تعاملی</li>
+                    <li>ایجاد بستر قرعه کشی</li>
+                    <li>محتوای اینستاگرام</li>
+                </ul>
+            </div>
+            <div class="image-display-area">
+                <img src="images/poster.png" alt="Poster Design" class="showcase-img">
+            </div>
+        </div>
+
+        <!-- 4. PUSH Strategy -->
+        <div class="section-wrapper">
+            <div class="content-card">
+                <span class="section-tag">استراتژی PUSH</span>
+                <h2>توسعه بازار و انگیزش فروش</h2>
+                <ul>
+                    <li>طرح انگیزشی توسعه بازار در فروشگاه ها</li>
+                    <li>طراحی اپلیکیشن انگیزشی ویزیتورها (KPI محور)</li>
+                    <li>۱۰۰٪ POP آماده نصب</li>
+                    <li>تصویب طرح پاداش ویزیتور</li>
+                </ul>
+            </div>
+            <div class="image-display-area">
+                <img src="images/screenshot.png" alt="App Screenshot" class="showcase-img" style="border-radius: 20px;">
+            </div>
+        </div>
+
+        <!-- 5. PULL Strategy -->
+        <div class="section-wrapper">
+            <div class="content-card">
+                <span class="section-tag">استراتژی PULL</span>
+                <h2>جذب مشتری و سمپلینگ</h2>
+                <ul>
+                    <li>نصب LCD در فروشگاه‌های منتخب (اجرای بازی بلوط)</li>
+                    <li>اجرای کمپین سمپلینگ محصول و اقلام بازاریابی</li>
+                    <li>تهیه سمپل محصولات چای</li>
+
+                    <li>اجرای سمپلینگ گرم</li>
+                    <li>طراحی لباس تم چای بلوط برای پروموترها</li>
+                </ul>
+                <div class="info-box">
+                    شناسایی فروشگاه‌های دارای قابلیت (High Potential) الزامی است.
+                </div>
+            </div>
+            <div class="image-display-area">
+                <img src="images/cloth.png" alt="Theme Cloth" class="showcase-img">
+            </div>
+        </div>
+
+        <!-- 6. Evaluation (No specific image mentioned, keeping full width text) -->
+        <div class="section-wrapper" style="display: block;">
+            <div class="content-card" style="width: 100%; background: linear-gradient(to left, rgba(255,255,255,0.7), rgba(255,255,255,0.9));">
+                <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <span class="section-tag" style="background: #1e293b; color: #fff;">اقدامات تکمیلی</span>
+                        <h2>طراحی و ایونت</h2>
+                        <ul>
+                            <li>طراحی اقلام POSM (مش، دانگلر، وابلز)</li>
+                            <li>طراحی کیویژوال (Key Visual) برای POSM</li>
+                            <li>طراحی هدلاین شلف فروشگاهی</li>
+                            <li>ایونت بلاگر محور محلی (معرفی ارزش‌های برند)</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <span class="section-tag" style="background: #e11d48; color: #fff;">نظارت</span>
+                        <h2>ارزیابی و گزارش‌دهی</h2>
+                        <ul>
+                            <li>بازدید استانی و نیازسنجی میدانی</li>
+                            <li>اعزام تیم به استان‌های هدف جهت بررسی وضعیت پخش</li>
+                            <li style="font-weight: bold; color: #e11d48;">خروجی: گزارش فرصت‌های فروش از ۱۰ استان اول</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
